@@ -1,0 +1,22 @@
+# Ignore build and devel directories
+/build/
+/devel/
+
+# Ignore log files
+/log/
+
+# Ignore install directory
+/install/
+
+# Ignore catkin tools specific files
+.catkin_tools/
+
+# Ignore Python bytecode files
+*.pyc
+__pycache__/
+
+# Ignore other common files
+*.swp
+*.bak
+*.tmp
+.DS_Store
