@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/home/isaac/turtle_cpp/src/turtle_cpp",
+    "cmake.sourceDirectory": "/home/isaac/turtle_draw/src/turtle_cpp",
     "files.associations": {
         "cmath": "cpp",
         "iterator": "cpp",
@@ -70,5 +70,6 @@
         "variant": "cpp",
         "bit": "cpp",
         "future": "cpp"
-    }
+    },
+    "cmake.ignoreCMakeListsMissing": true
 }
