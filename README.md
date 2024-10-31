@@ -38,7 +38,7 @@
 4. **改变背景颜色**：定期改变模拟器背景颜色。
 5. **数据发布**：发布乌龟之间的距离和朝向角度数据。
 
-### 实现细节
+## 实现细节
 
 #### 1. 生成乌龟
 在 `turtle_Group4.cpp` 和 `turtle_chase.cpp` 文件中，通过调用 `/spawn` 服务生成新的乌龟。
@@ -54,3 +54,30 @@
 
 #### 5. 数据发布
 在 `data_scope_pub.cpp` 文件中，通过订阅两只乌龟的位置，计算它们之间的距离和朝向角度，并发布这些数据。
+
+## 多线程
+
+1. **互斥锁 (`std::mutex`)**：
+   - 使用 `std::mutex` 来保护共享资源（如 turtle_poses），确保在多线程环境下对共享资源的访问是线程安全的。
+   - 例如，在 poseCallback 函数中使用 `std::lock_guard<std::mutex>` 来自动管理锁的生命周期。
+
+2. **异步任务 (`std::async`)**：
+   - 在 handleMoveToTarget 函数中，使用 `std::async` 来启动异步任务，执行 Move_To_Target
+
+ 函数。
+   - 例如：
+     ```cpp
+     std::async(std::launch::async, Move_To_Target, turtle_name, target, std::ref(rate));
+     ```
+   - 这会在一个新的线程中异步执行 Move_To_Target 函数，而不会阻塞主线程。
+
+3. **多线程的 ROS 服务服务器 (`ros::AsyncSpinner`)**：
+   - 在 main 函数中，使用 `ros::AsyncSpinner` 来创建一个多线程的 ROS 服务服务器。
+   - 例如：
+     ```cpp
+     ros::AsyncSpinner spinner(4);  // 使用4个线程
+     spinner.start();
+     ```
+   - 这允许 ROS 在多个线程中处理回调函数，从而提高并发性和响应速度。
+
+通过以上方式，代码实现了多线程处理，确保在处理多个乌龟的移动任务时能够高效且线程安全。
