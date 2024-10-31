@@ -2,7 +2,7 @@
 #include <turtlesim/Spawn.h>
 #include <turtlesim/Pose.h>
 #include <geometry_msgs/Twist.h>
-#include <turtle_package/MoveToTarget.h>
+#include <turtle_cpp/MoveToTarget.h>
 #include <boost/bind.hpp>
 
 turtlesim::Pose target_pose;
@@ -44,8 +44,8 @@ int main(int argc, char **argv) {
     }
 
     // 控制Group4_2乌龟不停地追逐目标乌龟
-    ros::ServiceClient client = nh.serviceClient<turtle_package::MoveToTarget>("move_to_target");
-    turtle_package::MoveToTarget srv;
+    ros::ServiceClient client = nh.serviceClient<turtle_cpp::MoveToTarget>("move_to_target");
+    turtle_cpp::MoveToTarget srv;
     srv.request.turtle_name = "Group4_2";
 
     ros::Rate rate(1000);  // 设置循环频率为10Hz

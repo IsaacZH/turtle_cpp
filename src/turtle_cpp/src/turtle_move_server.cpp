@@ -6,7 +6,7 @@
 #include <mutex>
 #include <future>
 #include <thread>
-#include <turtle_package/MoveToTarget.h>  // 包含服务消息类型
+#include <turtle_cpp/MoveToTarget.h>  // 包含服务消息类型
 
 struct target_info {
     double x, y;
@@ -82,7 +82,7 @@ void Move_To_Target(const std::string& turtle_name, const target_info& target, r
     turtle_publishers[turtle_name].publish(vel_msg);
 }
 
-bool handleMoveToTarget(turtle_package::MoveToTarget::Request &req, turtle_package::MoveToTarget::Response &res) {
+bool handleMoveToTarget(turtle_cpp::MoveToTarget::Request &req, turtle_cpp::MoveToTarget::Response &res) {
     std::string turtle_name = req.turtle_name;
     target_info target;
     target.x = req.x;

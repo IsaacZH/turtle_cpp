@@ -3,7 +3,7 @@
 #include "turtlesim/Pose.h"
 #include <vector>
 #include <cmath>
-#include <turtle_package/MoveToTarget.h>
+#include <turtle_cpp/MoveToTarget.h>
 
 struct Point {
     double x, y;
@@ -40,8 +40,8 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "draw_hilbert_curve");
     ros::NodeHandle nh;
     // 创建服务客户端
-    ros::ServiceClient client = nh.serviceClient<turtle_package::MoveToTarget>("move_to_target");
-    turtle_package::MoveToTarget srv;
+    ros::ServiceClient client = nh.serviceClient<turtle_cpp::MoveToTarget>("move_to_target");
+    turtle_cpp::MoveToTarget srv;
 
     int order = std::stoi(argv[1]);  // 希尔伯特曲线的阶数
     std::vector<Point> points;
