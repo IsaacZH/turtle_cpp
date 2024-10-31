@@ -139,8 +139,7 @@ include_directories(
 add_executable(turtle_Group4 src/turtle_Group4.cpp)
 add_executable(draw_helix src/draw_helix.cpp)
 add_executable(change_color src/change_color.cpp)
-add_executable(pose_pub src/pose_pub.cpp)
-add_executable(vel_sub src/vel_sub.cpp)
+add_executable(data_scope_pub src/data_scope_pub.cpp)
 add_executable(turtle_move_server src/turtle_move_server.cpp)
 add_executable(turtle_chase src/turtle_chase.cpp)
 
@@ -156,8 +155,7 @@ add_executable(turtle_chase src/turtle_chase.cpp)
 add_dependencies(turtle_Group4 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(draw_helix ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(change_color ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(pose_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(vel_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(data_scope_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(turtle_move_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(turtle_chase ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Specify libraries to link a library or executable target against
@@ -173,10 +171,7 @@ target_link_libraries(draw_helix
 target_link_libraries(change_color
   ${catkin_LIBRARIES}
 )
-target_link_libraries(pose_pub
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(vel_sub
+target_link_libraries(data_scope_pub
   ${catkin_LIBRARIES}
 )
 target_link_libraries(turtle_move_server 

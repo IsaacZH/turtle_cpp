@@ -24,7 +24,7 @@ int main(int argc, char** argv)
         std_srvs::Empty srv;
         if (client.call(srv))
         {
-            ROS_INFO("Cleared!");
+            // ROS_INFO("Cleared!");
         }
         else
         {

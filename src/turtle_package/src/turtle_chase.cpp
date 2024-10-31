@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
         srv.request.Kp_x = 8.0;
         if (client.call(srv)) {
             if (srv.response.success) {
-                ROS_INFO("Turtle Group4_2 moved to target successfully.");
+                // ROS_INFO("Turtle Group4_2 moved to target successfully.");
             } else {
                 ROS_WARN("Failed to move turtle Group4_2 to target.");
             }

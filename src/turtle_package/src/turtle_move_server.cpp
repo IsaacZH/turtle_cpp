@@ -41,7 +41,7 @@ void Move_To_Target(const std::string& turtle_name, const target_info& target, r
         double distance = std::sqrt(std::pow(target.x - turtle_pose.x, 2) +
                                     std::pow(target.y - turtle_pose.y, 2));
         if (distance < 0.01) {
-            ROS_INFO("Reached the target point");
+            // ROS_INFO("Reached the target point");
             break;
         }
 
@@ -66,8 +66,8 @@ void Move_To_Target(const std::string& turtle_name, const target_info& target, r
 
 
         if ((ros::Time::now() - last_print_time).toSec() >= 0.5) {
-            ROS_INFO("Turtle: %s, Target velocity - linear.x: %f, angle: %f", turtle_name.c_str(), vel_msg.linear.x, angle_to_goal);
-            ROS_INFO("Theta: %f", turtle_pose.theta);
+            // ROS_INFO("Turtle: %s, Target velocity - linear.x: %f, angle: %f", turtle_name.c_str(), vel_msg.linear.x, angle_to_goal);
+            // ROS_INFO("Theta: %f", turtle_pose.theta);
             // ROS_INFO("target.x: %f, target.y: %f,target.Kp_z: %f, target.Kp_x: %f", target.x, target.y, target.Kp_z, target.Kp_x);
             last_print_time = ros::Time::now();
         }
@@ -100,8 +100,6 @@ bool handleMoveToTarget(turtle_package::MoveToTarget::Request &req, turtle_packa
         turtle_subscribers[turtle_name] = pose_subscriber;
         turtle_publishers[turtle_name] = velocity_publisher;
     }
-    //打印接受到的信息
-    ROS_INFO("(%f, %f)", req.Kp_x, req.Kp_z);
     // Move_To_Target(turtle_name, target, rate, req.is_straight);
 
     std::async(std::launch::async, Move_To_Target, turtle_name, target, std::ref(rate));    

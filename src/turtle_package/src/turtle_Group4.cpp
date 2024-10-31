@@ -9,7 +9,7 @@
 //实时位置输出接受函数
 void poseCallback(const turtlesim::Pose::ConstPtr& msg)
 {
-    // ROS_INFO("乌龟Group4坐标 - X: %f, Y: %f, Theta: %f", msg->x, msg->y, msg->theta);
+    // ROS_INFO("Group4_Pose - X: %f, Y: %f, Theta: %f", msg->x, msg->y, msg->theta);
 }
 
 int main(int argc, char *argv[])

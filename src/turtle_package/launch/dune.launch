@@ -11,26 +11,12 @@
     <node pkg="turtle_package" type="turtle_move_server" name="turtle_move_server" output="screen"/>
    
     <node pkg="turtle_package" type="turtle_Group4" name="Group4" output="screen"/>
-    <node pkg="turtle_package" type="draw_helix" name="helix" output="screen"/>
+    <node pkg="turtle_package" type="draw_helix" name="helix" args="1" output="screen"/>
     <node pkg="turtle_package" type="turtle_chase" name="turtle_chase" output="screen"/>
-
-    <!--
-    
-    更换颜色
     <node pkg="turtle_package" type="change_color" name="change_color" output="screen"/>
+    <node pkg="turtle_package" type="data_scope_pub" name="data_scope_pub" output="screen"/>
+    <!-- 启动 rqt_plot 节点 -->
+    <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot" output="screen" args="/turtle_distance /turtle_2_orientation"/>
     
-    传入参数小海龟的名字
-    <node pkg="turtle_package" type="pose_pub" name="pub1" args="Group1" output="screen"/>
-    <node pkg="turtle_package" type="pose_pub" name="pub2" args="Group1_2" output="screen"/>
-    
-    <node pkg="turtle_package" type="vel_sub" name="control" output="screen"/>
-    -->
 
-    <!-- 启动 turtle_move_client 节点，并传递参数 
-    <node pkg="turtle_package" type="turtle_chase" name="turtle_chase" output="screen">
-        <param name="turtle_name" value="turtle1"/>
-        <param name="x" value="5.0"/>
-        <param name="y" value="5.0"/>
-        <param name="is_straight" value="0"/>
-    </node>-->
 </launch>

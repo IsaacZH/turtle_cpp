@@ -43,7 +43,7 @@ int main(int argc, char** argv)
     ros::ServiceClient client = nh.serviceClient<turtle_package::MoveToTarget>("move_to_target");
     turtle_package::MoveToTarget srv;
 
-    int order = 2;  // 希尔伯特曲线的阶数
+    int order = std::stoi(argv[1]);  // 希尔伯特曲线的阶数
     std::vector<Point> points;
     hilbert(order,points,0,0);   
 
