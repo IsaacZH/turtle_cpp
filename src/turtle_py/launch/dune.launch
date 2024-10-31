@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen"/>
+    <node pkg="turtle_py" type="turtle_move_server.py" name="turtle_move_server" output="screen"/>
+    <node pkg="turtle_py" type="turtle_Group4.py" name="Group4" output="screen"/>
+    <node pkg="turtle_py" type="draw_helix.py" name="helix" args="3" output="screen"/>
+    <node pkg="turtle_py" type="turtle_chase.py" name="turtle_chase" output="screen"/>
+    <node pkg="turtle_py" type="change_color.py" name="change_color" output="screen"/>
+    <node pkg="turtle_py" type="data_scope_pub.py" name="data_scope_pub" output="screen"/>
+    <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot" output="screen" args="/turtle_distance /turtle_2_orientation"/>
+</launch>

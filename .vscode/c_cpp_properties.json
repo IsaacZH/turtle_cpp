@@ -4,7 +4,11 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${/opt/ros/noetic/include/ros/}/**"
+                "/opt/ros/noetic/include", // ROS Noetic的头文件路径
+                "/usr/include", // 系统头文件路径
+                "/usr/include/eigen3", // Eigen库的头文件路径（如果使用）
+                "/home/isaac/turtle_cpp/devel/include", // 工作空间的头文件路径
+                "/home/isaac/turtle_cpp/src" // 工作空间的源文件路径
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

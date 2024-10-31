@@ -1,0 +1,8 @@
+string turtle_name
+float64 x
+float64 y
+float64 Kp_z
+float64 Kp_x
+bool is_straight
+---
+bool success
