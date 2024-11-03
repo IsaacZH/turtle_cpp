@@ -43,7 +43,7 @@ def main():
     for i, point in enumerate(points):
         while not rospy.is_shutdown():
             try:
-                move_to_target('Group4', point.x, point.y, 15.0, 6.0, i != 0)  # 修改参数顺序
+                move_to_target('Group4', point.x, point.y, 15.0, 6.0, i != 0)  
                 break
             except rospy.ServiceException as e:
                 rospy.logwarn("Service call failed, retrying...")

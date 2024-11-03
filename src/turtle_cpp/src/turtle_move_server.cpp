@@ -57,7 +57,7 @@ void Move_To_Target(const std::string& turtle_name, const target_info& target, r
             angle_error += 2 * M_PI;
         }
 
-        if (std::abs(angle_error) > 0.005) {
+        if (std::abs(angle_error) > 0.001) {
             vel_msg.angular.z = Kp_z * angle_error;
         } else {
             vel_msg.angular.z = 0;
